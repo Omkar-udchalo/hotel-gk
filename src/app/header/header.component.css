@@ -1,0 +1,12 @@
+a {
+    color: #45260a;
+}
+
+.heading-bg {
+    background: #fdf2e9 !important;
+}
+
+.navbar-light .nav-item:hover .nav-link {
+    color: #cf711f;
+    border-bottom: 1px solid grey;
+}
