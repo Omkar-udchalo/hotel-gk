@@ -1,12 +1,8 @@
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
-<h1>Menu here</h1>
+<p *ngIf="currentMenu.length == 0">Loading...</p>
+<div *ngIf="currentMenu.length > 0">
+    <ul *ngFor="let menu of currentMenu">
+        <li><img src="{{ menu.imageLink }}" /></li>
+        <li>{{ menu.name }}</li>
+        <li>{{ "&#8377;" + menu.price }}</li>
+    </ul>
+</div>

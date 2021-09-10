@@ -1,0 +1,15 @@
+img {
+    height: 200px;
+    width: 200px;
+}
+
+ul {
+    list-style: none;
+    font-size: 24px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    font-weight: bold;
+    align-items: center;
+    padding: 20px;
+}

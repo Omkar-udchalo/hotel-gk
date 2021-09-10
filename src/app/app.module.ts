@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuAddComponent } from './admin/menu-add/menu-add.component';
 import { FormsModule } from '@angular/forms';
+import { MenuService } from './shared/menu.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     MenuAddComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [MenuService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
