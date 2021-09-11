@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { Menu } from '../shared/menu.model';
 import { MenuService } from '../shared/menu.service';
@@ -11,15 +11,17 @@ import { MenuStorageService } from '../shared/menustorage.service';
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-  // isLoaded = false;
-  currentMenu!: Menu[];
+  currentMenu: Menu[] = [];
   constructor(
     private menuService: MenuService,
     private menuStorageService: MenuStorageService
-  ) {}
-
-  ngOnInit(): void {
-    this.menuStorageService.fetchMenu().subscribe();
-    this.currentMenu = this.menuService.getMenu();
+  ) {
+    this.menuStorageService.fetchMenu().then((data) => {
+      console.log(data);
+      this.menuService.setMenu(data);
+      this.currentMenu = this.menuService.getMenu();
+    });
   }
+
+  ngOnInit(): void {}
 }

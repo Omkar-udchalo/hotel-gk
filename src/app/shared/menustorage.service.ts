@@ -19,15 +19,19 @@ export class MenuStorageService {
       });
   }
 
-  fetchMenu() {
-   return this.http
-      .get<Menu[]>(
-        'https://hotel-app-d584c-default-rtdb.firebaseio.com/menu.json'
-      )
-      .pipe(
-        tap((menu) => {
-          this.menuService.setMenu(menu);
-        })
-      );
+  async fetchMenu() {
+    // const promise_fetch =
+    return (
+      this.http
+        .get<Menu[]>(
+          'https://hotel-app-d584c-default-rtdb.firebaseio.com/menu.json'
+        )
+        // .pipe(
+        //   tap((menu) => {
+        //     this.menuService.setMenu(menu);
+        //   })
+        // )
+        .toPromise()
+    );
   }
 }

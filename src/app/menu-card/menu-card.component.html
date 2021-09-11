@@ -1,0 +1,22 @@
+<div *ngFor="let menu of currentMenu" class="section-menu container grid">
+    <div class="meal">
+        <img src="{{ menu.imageLink }}" class="meal-img" alt="Japanese Gyozas" />
+        <div class="meal-content">
+            <p class="meal-title">{{ menu.name }}</p>
+            <ul class="meal-attributes">
+                <!-- <li class="meal-attribute">{{ menu.name }}</li> -->
+                <li class="meal-attribute">{{ "&#8377; " + menu.price }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="meal">
+        <img src="{{ menu.imageLink }}" class="meal-img" alt="Japanese Gyozas" />
+        <div class="meal-content">
+            <p class="meal-title">{{ menu.name }}</p>
+            <ul class="meal-attributes">
+                <!-- <li class="meal-attribute">{{ menu.name }}</li> -->
+                <li class="meal-attribute">{{ "&#8377; " + menu.price }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

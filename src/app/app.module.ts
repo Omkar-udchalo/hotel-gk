@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuAddComponent } from './admin/menu-add/menu-add.component';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from './shared/menu.service';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { MenuCardComponent } from './menu-card/menu-card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { MenuService } from './shared/menu.service';
     MenuComponent,
     FooterComponent,
     MenuAddComponent,
+    LoaderComponent,
+    MenuCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [MenuService],
