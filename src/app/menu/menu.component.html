@@ -3,10 +3,5 @@
     <app-loader></app-loader>
 </div>
 <div *ngIf="currentMenu.length > 0">
-    <!-- <ul *ngFor="let menu of currentMenu">
-        <li><img src="{{ menu.imageLink }}" /></li>
-        <li>{{ menu.name }}</li>
-        <li>{{ "&#8377;" + menu.price }}</li>
-    </ul> -->
-    <app-menu-card></app-menu-card>
+    <app-menu-card class="grid-prod"></app-menu-card>
 </div>

@@ -14,4 +14,7 @@ export class MenuCardComponent implements OnInit {
   ngOnInit(): void {
     this.currentMenu = this.menuService.getMenu();
   }
+  onAddToCart() {
+    console.log();
+  }
 }

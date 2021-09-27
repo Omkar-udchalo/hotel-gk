@@ -13,6 +13,12 @@ import { FormsModule } from '@angular/forms';
 import { MenuService } from './shared/menu.service';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { MenuCardComponent } from './menu-card/menu-card.component';
+import { AuthComponent } from './auth/auth.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './auth/auth.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -24,9 +30,18 @@ import { MenuCardComponent } from './menu-card/menu-card.component';
     MenuAddComponent,
     LoaderComponent,
     MenuCardComponent,
+    AuthComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [MenuService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+  ],
+  providers: [MenuService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

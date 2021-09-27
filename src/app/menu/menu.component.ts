@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, Subscription } from 'rxjs';
 
 import { Menu } from '../shared/menu.model';
@@ -13,14 +14,17 @@ import { MenuStorageService } from '../shared/menustorage.service';
 export class MenuComponent implements OnInit {
   currentMenu: Menu[] = [];
   constructor(
+    private fireAuth: AngularFireAuth,
     private menuService: MenuService,
     private menuStorageService: MenuStorageService
   ) {
-    this.menuStorageService.fetchMenu().then((data) => {
-      console.log(data);
-      this.menuService.setMenu(data);
-      this.currentMenu = this.menuService.getMenu();
-    });
+    if (fireAuth.authState != null) {
+      this.menuStorageService.fetchMenu().then((data) => {
+        console.log(data);
+        this.menuService.setMenu(data);
+        this.currentMenu = this.menuService.getMenu();
+      });
+    }
   }
 
   ngOnInit(): void {}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "hotel-app-d584c": {
+      "hosting": {
+        "hotel-gk": [
+          "hotel-app-d584c"
+        ]
+      }
+    }
+  }
+}
