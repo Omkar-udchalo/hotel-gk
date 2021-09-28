@@ -1,4 +1,4 @@
-<div *ngFor="let menu of currentMenu" class="section-menu container">
+<div *ngFor="let menu of currentMenu; let i = index" class="section-menu container">
     <div class="meal">
         <img src="{{ menu.imageLink }}" class="meal-img" />
         <div>
@@ -6,7 +6,7 @@
             <ul class="meal-attributes">
                 <li class="meal-attribute">{{ "&#8377; " + menu.price }}</li>
                 <li class="meal-attribute">
-                    <button class="add-to-cart" (click)="onAddToCart()">Add</button>
+                    <button class="add-to-cart" (click)="onAddToCart(i)">Add</button>
                 </li>
             </ul>
         </div>

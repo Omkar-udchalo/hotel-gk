@@ -1,12 +1,41 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MenuService } from './menu.service';
-import { tap } from 'rxjs/operators';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
+} from '@angular/fire/firestore';
 import { Menu } from './menu.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 @Injectable({ providedIn: 'root' })
 export class MenuStorageService {
-  constructor(private http: HttpClient, private menuService: MenuService) {}
+  // productscollection: AngularFirestoreCollection<Menu>;
+  menus: Menu[] = [];
+  products: Observable<any[]>;
 
+  constructor(
+    private http: HttpClient,
+    private menuService: MenuService,
+    private afs: AngularFirestore,
+    private db: AngularFirestore
+  ) {
+    // this.productscollection =
+    // return this.productscollection.valueChanges();
+    this.products = db
+      .collection('products')
+      .snapshotChanges()
+      .pipe(
+        map((changes) => {
+          return changes.map((a) => {
+            return a.payload.doc.data();
+          });
+        })
+      );
+    // console.log();
+  }
   storeMenu() {
     const currentMenu = this.menuService.getMenu();
     this.http
@@ -33,5 +62,9 @@ export class MenuStorageService {
         // )
         .toPromise()
     );
+  }
+
+  fetchMenuFromStore() {
+    return this.products;
   }
 }

@@ -18,7 +18,17 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/add-menu">Add Menu</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/cart">Cart </a>
+                </li>
+                <li class="cart">
+                    <i class="fa" style="font-size: 24px">&#xf07a;</i>
+                    <span class="badge badge-warning" id="lblCartCount">
+            {{ count }}
+          </span>
+                </li>
             </ul>
         </div>
     </div>
+    <p *ngIf="fireAuth.authState | async">Hi {{ user.name }}</p>
 </nav>

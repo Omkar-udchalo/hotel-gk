@@ -30,4 +30,10 @@ export class AuthService {
       .doc(user.uid)
       .set(Object.assign({}, user));
   }
+
+  getCurrentUser() {
+    this.afAuth.authState.subscribe((data) => {
+      return data;
+    });
+  }
 }
