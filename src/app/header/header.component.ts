@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.cartChanged.subscribe((data) => {
+      // console.log(data);
+
       for (let item of data) {
         this.count += item.qty;
       }

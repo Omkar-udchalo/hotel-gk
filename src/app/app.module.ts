@@ -20,6 +20,7 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth/auth.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CartComponent } from './cart/cart.component';
     MenuCardComponent,
     AuthComponent,
     CartComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

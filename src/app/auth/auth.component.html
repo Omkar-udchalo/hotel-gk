@@ -16,6 +16,10 @@
         </div>
         <hr />
         <form #authForm="ngForm" (ngSubmit)="onAuthForm(authForm)" *ngIf="!isLoading">
+            <div class="form-group" *ngIf="!isLoginMode">
+                <label for="email">Name</label>
+                <input type="text" name="name" id="name" class="form-control" ngModel required />
+            </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" class="form-control" ngModel required email />

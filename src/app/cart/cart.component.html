@@ -16,5 +16,7 @@
         </div>
     </div>
 
-    <button class="order">Place Order</button>
+    <button class="order" (click)="onOrderPlaced()" [disabled]="currentCart.length === 0">
+    Place Order
+  </button>
 </div>

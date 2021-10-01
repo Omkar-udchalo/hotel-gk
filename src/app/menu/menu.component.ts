@@ -38,7 +38,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     //check user
     this.fireAuth.authState.subscribe((data) => {
-      console.log(data);
+      // console.log(data);
     });
     this.currentCart = this.cartService.getCart();
 
