@@ -1,3 +1,7 @@
+.navbar-nav {
+    cursor: pointer;
+}
+
 a {
     color: #45260a;
 }

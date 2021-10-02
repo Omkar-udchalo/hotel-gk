@@ -15,9 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/auth">Auth</a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item" *ngIf="user.name ? user.name === 'Omkar Mankar' : false">
                     <a class="nav-link" routerLink="/add-menu">Add Menu</a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/orders">Orders</a>
                 </li>
